@@ -11,18 +11,17 @@
 /* ************************************************************************** */
 
 #pragma once
-#ifndef __HUMANB_HPP__
-#define __HUMANB_HPP__
+#ifndef HUMANB_HPP
+#define HUMANB_HPP
 #include <string>
 #include "Weapon.hpp"
-#include "../includes/Weapon.hpp"
 
 class HumanB
 {
 public:
-    HumanB(std::string name);
+    HumanB(const std::string& name);
     ~HumanB();
-    HumanB      operator=(const HumanB &other);
+    HumanB&     operator=(const HumanB &other);
     Weapon      *getWeapon(void) const;
     std::string getName(void) const;
     void        setWeapon(Weapon &weapon);

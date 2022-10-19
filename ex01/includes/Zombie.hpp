@@ -11,8 +11,8 @@
 /* ************************************************************************** */
 
 #pragma once
-#ifndef __ZOMBIE_HPP__
-#define __ZOMBIE_HPP__
+#ifndef ZOMBIE_HPP
+#define ZOMBIE_HPP
 #include <string>
 
 class Zombie
@@ -20,11 +20,11 @@ class Zombie
 public:
     Zombie();
     ~Zombie();
-    Zombie(std::string name);
-    Zombie      operator=(const Zombie& other);
+    Zombie(const std::string& name);
+    Zombie&     operator=(const Zombie& other);
     std::string get_name(void) const;
     void        announce(void);
-    void        set_name(std::string name);
+    void        set_name(const std::string& name);
 private:
     std::string _name;
 };

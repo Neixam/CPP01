@@ -14,7 +14,6 @@
 #include <iostream>
 #include "Zombie.hpp"
 
-
 const static std::string RED = "\033[31m";
 const static std::string GREEN = "\033[32m";
 const static std::string NEUTRAL = "\033[0m";
@@ -24,7 +23,7 @@ void Zombie::announce(void)
     std::cout << _name << ": BraiiiiiiinnnzzzZ..." << std::endl;
 }
 
-Zombie Zombie::operator=(const Zombie &other)
+Zombie& Zombie::operator=(const Zombie &other)
 {
     if (this == &other)
         return *this;
@@ -32,7 +31,7 @@ Zombie Zombie::operator=(const Zombie &other)
     return *this;
 }
 
-Zombie::Zombie(std::string name)
+Zombie::Zombie(const std::string& name)
 {
     std::cout << GREEN << "Zombie Constructor: " << name << NEUTRAL << std::endl;
     _name = name;

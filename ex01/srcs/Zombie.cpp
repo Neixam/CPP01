@@ -23,7 +23,7 @@ void Zombie::announce(void)
     std::cout << _name << ": BraiiiiiiinnnzzzZ..." << std::endl;
 }
 
-Zombie Zombie::operator=(const Zombie &other)
+Zombie& Zombie::operator=(const Zombie &other)
 {
     if (this == &other)
         return *this;
@@ -31,7 +31,7 @@ Zombie Zombie::operator=(const Zombie &other)
     return *this;
 }
 
-Zombie::Zombie(std::string name)
+Zombie::Zombie(const std::string& name)
 {
     std::cout << GREEN << "Zombie Constructor: " << name << NEUTRAL << std::endl;
     _name = name;
@@ -53,7 +53,7 @@ std::string Zombie::get_name(void) const
     return _name;
 }
 
-void Zombie::set_name(std::string name)
+void Zombie::set_name(const std::string& name)
 {
     _name = name;
 }

@@ -1,35 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ambouren <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/17 14:42:35 by ambouren          #+#    #+#             */
-/*   Updated: 2022/10/17 14:42:36 by ambouren         ###   ########.fr       */
+/*   Created: 2022/10/19 13:50:26 by ambouren          #+#    #+#             */
+/*   Updated: 2022/10/19 13:50:27 by ambouren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
-#ifndef ZOMBIE_HPP
-#define ZOMBIE_HPP
+#ifndef HARL_HPP
+#define HARL_HPP
 #include <string>
+#define DEBUG 0
+#define INFO 1
+#define WARNING 2
+#define ERROR 3
 
-class Zombie
+class Harl
 {
 public:
-    Zombie();
-    ~Zombie();
-    Zombie(const std::string& name);
-    Zombie&     operator=(const Zombie& other);
-    std::string get_name(void) const;
-    void        announce(void);
+    Harl();
+    Harl(const std::string& minLevel);
+    ~Harl();
+    void    complain(std::string level);
+    int     getLevel() const;
 private:
-    std::string _name;
+    void        debug();
+    void        info();
+    void        warning();
+    void        error();
+    int         _level;
 };
-
-void    randomChump(std::string name);
-
-Zombie  *newZombie(std::string name);
 
 #endif

@@ -12,7 +12,7 @@
 
 #include <string>
 #include <iostream>
-#include "../includes/HumanA.hpp"
+#include "HumanA.hpp"
 
 const static std::string RED = "\033[31m";
 const static std::string GREEN = "\033[32m";
@@ -23,7 +23,7 @@ HumanA::~HumanA()
     std::cout << RED << "HumanA Destructor: " << _name << ", " << _weapon->getType() << NEUTRAL << std::endl;
 }
 
-HumanA HumanA::operator=(const HumanA &other)
+HumanA& HumanA::operator=(const HumanA &other)
 {
     if (this == &other)
         return *this;

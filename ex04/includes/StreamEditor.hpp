@@ -1,35 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   StreamEditor.hpp                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ambouren <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/17 14:42:35 by ambouren          #+#    #+#             */
-/*   Updated: 2022/10/17 14:42:36 by ambouren         ###   ########.fr       */
+/*   Created: 2022/10/18 19:11:13 by ambouren          #+#    #+#             */
+/*   Updated: 2022/10/18 19:11:14 by ambouren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
-#ifndef ZOMBIE_HPP
-#define ZOMBIE_HPP
+#ifndef STREAM_EDITOR_HPP
+#define STREAM_EDITOR_HPP
 #include <string>
+#include <fstream>
 
-class Zombie
+class StreamEditor
 {
 public:
-    Zombie();
-    ~Zombie();
-    Zombie(const std::string& name);
-    Zombie&     operator=(const Zombie& other);
-    std::string get_name(void) const;
-    void        announce(void);
+    StreamEditor(const std::string& filename, const std::string& find, const std::string& replace);
+    ~StreamEditor();
+    int replace();
 private:
-    std::string _name;
+    std::ifstream   _in;
+    std::ofstream   _out;
+    std::string     _find;
+    std::string     _replace;
 };
-
-void    randomChump(std::string name);
-
-Zombie  *newZombie(std::string name);
 
 #endif

@@ -1,35 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ambouren <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/17 14:42:35 by ambouren          #+#    #+#             */
-/*   Updated: 2022/10/17 14:42:36 by ambouren         ###   ########.fr       */
+/*   Created: 2022/10/18 19:11:23 by ambouren          #+#    #+#             */
+/*   Updated: 2022/10/18 19:11:29 by ambouren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
-#ifndef ZOMBIE_HPP
-#define ZOMBIE_HPP
-#include <string>
+#include <iostream>
+#include "StreamEditor.hpp"
 
-class Zombie
+int main(int ac, char **av)
 {
-public:
-    Zombie();
-    ~Zombie();
-    Zombie(const std::string& name);
-    Zombie&     operator=(const Zombie& other);
-    std::string get_name(void) const;
-    void        announce(void);
-private:
-    std::string _name;
-};
+    if (ac != 4)
+    {
+        std::cout << "usage:\n" << av[0] << " filename find_string replace_string" << std::endl;
+        return (0);
+    }
+    StreamEditor streamEditor(av[1], av[2], av[3]);
 
-void    randomChump(std::string name);
-
-Zombie  *newZombie(std::string name);
-
-#endif
+    if (streamEditor.replace())
+        std::cerr << av[0] << ": expression find_string is empty" << std::endl;
+    return (0);
+}

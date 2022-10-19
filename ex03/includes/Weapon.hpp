@@ -11,19 +11,19 @@
 /* ************************************************************************** */
 
 #pragma once
-#ifndef __WEAPON_HPP__
-#define __WEAPON_HPP__
+#ifndef WEAPON_HPP
+#define WEAPON_HPP
 #include <string>
 
 class Weapon
 {
 public:
     Weapon();
-    Weapon(std::string type);
+    Weapon(const std::string& type);
     ~Weapon();
-    Weapon      operator=(const Weapon& other);
+    Weapon&     operator=(const Weapon& other);
     std::string getType(void) const;
-    void        setType(std::string type);
+    void        setType(const std::string& type);
 private:
     std::string _type;
 };
